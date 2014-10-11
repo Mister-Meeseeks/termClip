@@ -31,10 +31,14 @@ function getHistVersion() {
 function getHistIndex() {
     local histIdx=$1
     if [[ $histIdx -lt 0 ]] ; then
-	ls -v $historyDir/* | tail -n $histIdx | head -n 1
+	listHistDir | tail -n $histIdx | head -n 1
     else
-	ls -v $historyDir/* | head -n $histIdx | tail -n 1
+	listHistDir | head -n $histIdx | tail -n 1
     fi
+}
+
+function listHistDir() {
+    ls -v $historyDir | sed "s+.*+$historyDir/&+"
 }
 
 function pullItemData() {
