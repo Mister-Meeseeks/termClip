@@ -3,5 +3,11 @@
 scriptDir=$(dirname $(readlink -f $0))
 . $scriptDir/sourceCfg.sh
 
-$termClip $termFlags -s $(readlink -f $termArgs)
+if [[ -z "$termArgs" ]] ; then
+    dirArg=.
+else
+    dirArg="$termArgs"
+fi
+
+$termClip $termFlags -s $(readlink -f $dirArg)
 
