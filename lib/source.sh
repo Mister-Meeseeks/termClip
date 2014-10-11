@@ -14,5 +14,5 @@ export clipboardSubDir=clipboard/
 export defaultSubDir=default/
 export binsSubDir=bins/
 
-export defaultConfigDir=$etcDir/$configBase
+export defaultConfig=$etcDir/$configBase
 

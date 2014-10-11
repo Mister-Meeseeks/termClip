@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 scriptDir=$(dirname $(readlink -f $0))
 . $scriptDir/source.sh

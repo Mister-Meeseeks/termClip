@@ -3,9 +3,9 @@
 export copyString=""
 export clipOp="copy"
 export binName=""
-export termClipDir="~/.termClip/"
+export termClipDir=~/.termClip/
 
-while getopts s:pb:h: ; do
+while getopts s:pb:h: opt ; do
     case $opt in
 	s) copyString="$OPTARG";;
 	p) clipOp="paste";;
@@ -23,3 +23,5 @@ mkdir -p $termClipDir $clipboardDir $clipboardDefaultDir $clipboardBinsDir
 if [[ ! -e $userConfig ]] ; then
     cp $defaultConfig $userConfig
 fi
+
+. $userConfig

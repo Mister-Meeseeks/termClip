@@ -6,7 +6,7 @@ activeDataPath=$binDir/$activeBase
 historyDir=$binDir/$historySubDir/
 
 histSize=$($getHistorySize $binDir)
-if [[ $histSize -ge $MAX_CLIPBOARD_HISTORY_SIZE ]] ; then
+if [[ $histSize -ge $MAX_CLIPBOARD_HIST_SIZE ]] ; then
     firstHistItem=$($lookupHistItem 1 $binDir)
     rm $firstHistItem
 fi
