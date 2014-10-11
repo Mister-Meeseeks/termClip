@@ -7,9 +7,9 @@ function initializeBinDir() {
 }
 
 if [[ -z $binName ]] ; then
-    binDir=$clipboardDir/$defaultBinSubDir/
+    binDir=$clipboardDefaultDir/
 else
-    binDir=$clipboardDir/$binsSubDir/$binName/
+    binDir=$clipboardBinsDir/$binName/
 fi
 
 initializeBinDir $binDir
