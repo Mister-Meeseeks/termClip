@@ -9,8 +9,9 @@ while getopts xv opt ; do
 	v) indexVersion=1;;
     esac
 done
-histIdx=$1
-binDir=$2
+shift $(( $OPTIND - 1))
+binDir=$1
+histIdx=$2
 
 historyDir=$binDir/$historySubDir/
 
@@ -24,21 +25,21 @@ function getHistItem() {
 
 function getHistVersion() {
     local versionNum=$1
-    ls $historyDir/v.$versionNum.cpb
+    echo $historyDir/v.$versionNum.cpb
 }
 
 function getHistIndex() {
     local histIdx=$1
     if [[ $histIdx -lt 0 ]] ; then
-	ls -v $historyDir | tail -n $histIdx | head -n 1
+	ls -v $historyDir/* | tail -n $histIdx | head -n 1
     else
-	ls -v $historyDir | head -n $histIdx | tail -n 1
+	ls -v $historyDir/* | head -n $histIdx | tail -n 1
     fi
 }
 
 function pullItemData() {
     if [[ $extractVersionNum -gt 0 ]] ; then
-	sed "s+.*v[.]\([0-9]*\)\).cpb+\1+"
+	sed "s+.*v[.]\([0-9]*\).cpb+\1+"
     else
 	cat
     fi

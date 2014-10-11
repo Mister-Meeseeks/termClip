@@ -1,13 +1,13 @@
 #!/bin/bash -eu
 
-export copyString=""
+export clipString=""
 export clipOp="copy"
 export binName=""
 export termClipDir=~/.termClip/
 
 while getopts s:pb:h: opt ; do
     case $opt in
-	s) copyString="$OPTARG";;
+	s) clipString="$OPTARG";;
 	p) clipOp="paste";;
 	b) binName="$OPTARG";;
 	h) termClipDir="$OPTARG";;

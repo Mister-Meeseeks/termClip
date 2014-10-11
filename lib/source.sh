@@ -13,6 +13,7 @@ export configBase=config.sh
 export clipboardSubDir=clipboard/
 export defaultSubDir=default/
 export binsSubDir=bins/
+export historySubDir=history/
 
 export defaultConfig=$etcDir/$configBase
 

@@ -7,9 +7,10 @@ while getopts d opt ; do
 	d) decrementHistory=1;;
     esac
 done
+shift $(( $OPTIND - 1 ));
 binDir=$1
 
-lastHistItem=$($lookupHistItem -1)
+lastHistItem=$($lookupHistItem $binDir -1)
 cat $lastHistItem
 
 if [[ $decrementHistory -gt 0 ]] ; then

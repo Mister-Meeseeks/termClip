@@ -7,10 +7,10 @@ scriptDir=$(dirname $(readlink -f $0))
 binDir=$($retrieveBinDir)
 
 if [[ $clipOp == "copy" ]] ; then
-    if [[ -z $clipDataString ]] ; then
+    if [[ -z $clipString ]] ; then
 	cat | $putIntoBin $binDir 
     else
-	echo $copyString | $putIntoBin $binDir
+	echo $clipString | $putIntoBin $binDir
     fi
 else
     $takeFromBin $binDir
